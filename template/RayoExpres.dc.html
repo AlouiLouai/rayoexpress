@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: oklch(0.5 0.19 255); text-decoration: none; }
+    a:hover { color: oklch(0.4 0.19 255); }
+    ::selection { background: oklch(0.85 0.08 255); }
+    @keyframes pulse { 0%,100% { transform: scale(1); opacity:1; } 50% { transform: scale(1.15); opacity:.7; } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    @media (max-width: 900px) {
+      .re-desktop-nav { display: none !important; }
+      .re-burger { display: flex !important; }
+      .re-hero-grid { grid-template-columns: 1fr !important; }
+      .re-hero-img { order: 1 !important; height: 320px !important; }
+      .re-hero-text { order: 2 !important; }
+      .re-contact-grid { grid-template-columns: 1fr !important; }
+      .re-mobile-bar { display: flex !important; }
+      .re-page-pad-bottom { padding-bottom: 84px !important; }
+      .re-trust-card { grid-template-columns: repeat(2,1fr) !important; margin-left: 16px !important; margin-right: 16px !important; }
+      .re-cta-band { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
+      .re-bento { grid-template-columns: 1fr !important; }
+      .re-bento > div { grid-column: auto !important; }
+    }
+    @media (max-width: 640px) {
+      .re-services-grid { grid-template-columns: 1fr !important; }
+      .re-gallery-grid { grid-template-columns: repeat(2,1fr) !important; }
+      .re-hero-title { font-size: 36px !important; }
+      .re-section-title { font-size: 28px !important; }
+    }
+  </style>
+</helmet>
+
+<div class="re-page-pad-bottom" style="font-family: 'Inter', system-ui, sans-serif; color: oklch(0.24 0.02 255); background: oklch(0.99 0.003 250); min-height: 100vh; overflow-x: hidden;">
+
+  <!-- Header -->
+  <header style="position: sticky; top: 0; z-index: 50; background: oklch(0.995 0.003 250 / 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid oklch(0.92 0.01 255); display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; gap: 16px;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <div style="width: 38px; height: 38px; border-radius: 11px; background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.46 0.19 265)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 6px 16px -4px oklch(0.5 0.19 255 / 0.5);">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="white"/></svg>
+      </div>
+      <span style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 19px; color: oklch(0.2 0.02 255); letter-spacing: -0.02em;">Rayo<span style="color: oklch(0.5 0.19 255);">Exprés</span></span>
+    </div>
+
+    <nav class="re-desktop-nav" style="display: flex; align-items: center; gap: 32px;">
+      <a href="#servicios" style="font-weight: 600; font-size: 15px; color: oklch(0.35 0.02 255);">Servicios</a>
+      <a href="#trabajos" style="font-weight: 600; font-size: 15px; color: oklch(0.35 0.02 255);">Trabajos</a>
+      <a href="#opiniones" style="font-weight: 600; font-size: 15px; color: oklch(0.35 0.02 255);">Opiniones</a>
+      <a href="#contacto" style="font-weight: 600; font-size: 15px; color: oklch(0.35 0.02 255);">Contacto</a>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 10px;">
+      <a href="tel:+34656827054" style="display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.46 0.19 265)); color: white; font-weight: 700; font-size: 14px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; box-shadow: 0 8px 20px -8px oklch(0.5 0.19 255 / 0.6);" style-hover="filter:brightness(1.08);">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span class="re-phone-text">656 82 70 54</span>
+      </a>
+      <button class="re-burger" onClick="{{ toggleMenu }}" style="display: none; width: 40px; height: 40px; border-radius: 8px; border: 1px solid oklch(0.88 0.01 255); background: white; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="oklch(0.3 0.02 255)" stroke-width="2.3" stroke-linecap="round"><path d="{{ menuIconPath }}"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <sc-if value="{{ menuOpen }}">
+    <div style="position: sticky; top: 65px; z-index: 49; background: white; border-bottom: 1px solid oklch(0.9 0.01 255); padding: 16px 24px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 12px 24px -12px oklch(0.2 0.02 255 / 0.2);">
+      <a href="#servicios" onClick="{{ closeMenu }}" style="padding: 12px 4px; font-weight: 600; border-bottom: 1px solid oklch(0.94 0.01 255);">Servicios</a>
+      <a href="#trabajos" onClick="{{ closeMenu }}" style="padding: 12px 4px; font-weight: 600; border-bottom: 1px solid oklch(0.94 0.01 255);">Trabajos</a>
+      <a href="#opiniones" onClick="{{ closeMenu }}" style="padding: 12px 4px; font-weight: 600; border-bottom: 1px solid oklch(0.94 0.01 255);">Opiniones</a>
+      <a href="#contacto" onClick="{{ closeMenu }}" style="padding: 12px 4px; font-weight: 600;">Contacto</a>
+    </div>
+  </sc-if>
+
+  <!-- Hero -->
+  <section style="position: relative; padding: 72px 24px 0; max-width: 1280px; margin: 0 auto; overflow: hidden;">
+    <div style="position: absolute; top: -140px; right: -120px; width: 480px; height: 480px; border-radius: 50%; background: radial-gradient(circle, oklch(0.75 0.1 255 / 0.35), transparent 70%); filter: blur(20px); pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -80px; left: -140px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, oklch(0.78 0.11 300 / 0.22), transparent 70%); filter: blur(20px); pointer-events: none;"></div>
+
+    <div class="re-hero-grid" style="position: relative; display: grid; grid-template-columns: {{ heroColumns }}; gap: 56px; align-items: center;">
+      <div class="re-hero-text" style="{{ heroOrder }}">
+        <div style="display: inline-flex; align-items: center; gap: 8px; background: oklch(0.94 0.03 255); color: oklch(0.42 0.17 255); font-weight: 700; font-size: 13px; padding: 7px 14px; border-radius: 999px; margin-bottom: 22px; border: 1px solid oklch(0.86 0.06 255);">
+          <span style="position: relative; width: 8px; height: 8px;">
+            <span style="position:absolute; inset:0; border-radius: 50%; background: oklch(0.65 0.19 145); animation: pulse 1.8s ease-in-out infinite;"></span>
+          </span>
+          URGENCIAS 24 HORAS
+        </div>
+        <h1 class="re-hero-title" style="font-family: 'Manrope', sans-serif; font-weight: 900; font-size: 54px; line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 22px; color: oklch(0.18 0.02 255); text-wrap: pretty;">
+          Electricista <span style="background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.5 0.18 290)); -webkit-background-clip: text; background-clip: text; color: transparent;">24 horas</span> en Bilbao y toda Vizcaya
+        </h1>
+        <p style="font-size: 18px; line-height: 1.6; color: oklch(0.42 0.02 255); margin: 0 0 30px; max-width: 480px;">
+          Averías eléctricas, cuadros, iluminación LED y boletines. Atendemos tu incidencia con rapidez y presupuesto cerrado antes de empezar.
+        </p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 30px;">
+          <a href="tel:+34656827054" style="display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.46 0.19 265)); color: white; font-weight: 700; font-size: 15.5px; padding: 16px 26px; border-radius: 14px; box-shadow: 0 12px 28px -10px oklch(0.5 0.19 255 / 0.55);" style-hover="transform:translateY(-2px); box-shadow: 0 16px 32px -8px oklch(0.5 0.19 255 / 0.65);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Llamar ahora
+          </a>
+          <a href="https://wa.me/34656827054" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; background: white; color: oklch(0.3 0.1 150); font-weight: 700; font-size: 15.5px; padding: 16px 26px; border-radius: 14px; border: 1.5px solid oklch(0.6 0.15 150 / 0.4);" style-hover="border-color: oklch(0.6 0.15 150); background: oklch(0.97 0.04 150);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="oklch(0.5 0.16 150)"><path d="M20.52 3.48A11.87 11.87 0 0012.06 0C5.5 0 .2 5.3.2 11.85c0 2.09.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 005.66 1.44h.01c6.55 0 11.86-5.3 11.86-11.85 0-3.17-1.24-6.14-3.41-8.43zM12.06 21.4a9.5 9.5 0 01-4.85-1.33l-.35-.21-3.8 1 1.01-3.7-.23-.38a9.5 9.5 0 01-1.46-5.03c0-5.27 4.3-9.55 9.6-9.55 2.56 0 4.97 1 6.78 2.81a9.48 9.48 0 012.8 6.76c0 5.27-4.3 9.63-9.5 9.63zm5.24-7.13c-.29-.14-1.7-.84-1.96-.93-.26-.1-.46-.14-.65.14-.19.29-.75.93-.92 1.12-.17.19-.34.22-.63.07-.29-.14-1.21-.45-2.3-1.42-.85-.76-1.42-1.69-1.59-1.98-.17-.29-.02-.44.13-.59.13-.13.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.65-1.56-.89-2.14-.23-.56-.47-.48-.65-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.29-1 .98-1 2.38 0 1.4 1.02 2.76 1.16 2.95.14.19 2.01 3.07 4.87 4.3.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+        <p style="font-size: 13.5px; color: oklch(0.5 0.02 255); display: flex; align-items: center; gap: 6px; margin: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="oklch(0.55 0.02 255)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Sin cuota de desplazamiento · Presupuesto antes de empezar
+        </p>
+      </div>
+      <div class="re-hero-img" style="position: relative; height: 460px; {{ heroImgOrder }}">
+        <div style="position: absolute; inset: 0; border-radius: 28px; overflow: hidden; box-shadow: 0 30px 60px -24px oklch(0.2 0.06 255 / 0.4);">
+          <image-slot id="hero-photo" shape="rect" placeholder="Foto: electricista trabajando en cuadro eléctrico"></image-slot>
+        </div>
+        <div style="position: absolute; bottom: 20px; left: -20px; background: white; border-radius: 16px; padding: 14px 20px; box-shadow: 0 16px 32px -12px oklch(0.2 0.06 255 / 0.35); display: flex; align-items: center; gap: 12px; animation: float 4s ease-in-out infinite;">
+          <div style="display: flex; gap: 2px;" dangerouslySetInnerHTML="{{ starsHtml }}"></div>
+          <div style="font-weight: 800; font-size: 14px; color: oklch(0.2 0.02 255); font-family: 'Manrope', sans-serif;">4,9/5 <span style="font-weight: 500; color: oklch(0.5 0.02 255); font-size: 12.5px;">· 120+ opiniones</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating trust card -->
+    <div class="re-trust-card" style="position: relative; margin: 56px auto -1px; max-width: 1080px; background: white; border-radius: 24px; box-shadow: 0 24px 60px -20px oklch(0.2 0.05 255 / 0.25); padding: 32px 16px; display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; z-index: 2;">
+      <sc-for list="{{ trustItems }}" as="item" hint-placeholder-count="4">
+        <div style="display: flex; align-items: center; gap: 14px; padding: 8px 16px; border-left: 1px solid oklch(0.93 0.01 255);">
+          <div style="width: 42px; height: 42px; border-radius: 11px; background: oklch(0.95 0.03 255); display: flex; align-items: center; justify-content: center; flex-shrink: 0;" dangerouslySetInnerHTML="{{ item.icon }}"></div>
+          <div>
+            <div style="font-weight: 800; font-size: 15px; color: oklch(0.2 0.02 255); font-family: 'Manrope', sans-serif;">{{ item.title }}</div>
+            <div style="font-size: 12.5px; color: oklch(0.5 0.02 255);">{{ item.sub }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="servicios" style="padding: 128px 24px 80px; max-width: 1280px; margin: 0 auto;">
+    <div style="max-width: 560px; margin: 0 auto 44px; text-align: center;">
+      <div style="font-weight: 800; font-size: 13px; letter-spacing: 0.08em; color: oklch(0.5 0.19 255); margin-bottom: 10px;">SERVICIOS</div>
+      <h2 class="re-section-title" style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 36px; margin: 0 0 12px; color: oklch(0.2 0.02 255); letter-spacing: -0.01em;">Electricidad para toda Vizcaya</h2>
+      <p style="font-size: 16px; color: oklch(0.45 0.02 255); margin: 0;">Trabajamos para viviendas, comunidades, comercios e industria.</p>
+    </div>
+    <div class="re-bento" style="display: grid; grid-template-columns: repeat({{ serviceColumns }}, 1fr); gap: 20px;">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="7">
+        <div style="background: white; border: 1px solid oklch(0.91 0.01 255); border-radius: 20px; padding: 28px; transition: all .2s;" style-hover="box-shadow: 0 20px 40px -20px oklch(0.2 0.06 255 / 0.35); transform: translateY(-4px); border-color: oklch(0.85 0.03 255);">
+          <div style="width: 46px; height: 46px; border-radius: 12px; background: oklch(0.95 0.03 255); display: flex; align-items: center; justify-content: center; margin-bottom: 18px;" dangerouslySetInnerHTML="{{ s.icon }}"></div>
+          <h3 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17.5px; margin: 0 0 8px; color: oklch(0.2 0.02 255);">{{ s.title }}</h3>
+          <p style="font-size: 14.5px; line-height: 1.55; color: oklch(0.45 0.02 255); margin: 0;">{{ s.desc }}</p>
+        </div>
+      </sc-for>
+      <div style="grid-column: span 1; background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.44 0.19 268)); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: center; gap: 16px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -30px; right: -30px; width: 140px; height: 140px; border-radius: 50%; background: oklch(1 0 0 / 0.08);"></div>
+        <div style="position: relative;">
+          <h3 style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 18px; margin: 0 0 6px; color: white;">¿Tienes una urgencia?</h3>
+          <p style="font-size: 14.5px; color: oklch(0.92 0.03 255); margin: 0;">Llámanos y te atendemos ahora mismo.</p>
+        </div>
+        <a href="tel:+34656827054" style="position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; background: white; color: oklch(0.46 0.19 255); font-weight: 700; font-size: 14px; padding: 13px 16px; border-radius: 12px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="oklch(0.46 0.19 255)" stroke-width="2.3" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          656 82 70 54
+        </a>
+        <a href="https://wa.me/34656827054" target="_blank" rel="noopener" style="position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; background: oklch(1 0 0 / 0.15); color: white; font-weight: 700; font-size: 14px; padding: 13px 16px; border-radius: 12px; border: 1px solid oklch(1 0 0 / 0.3);">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.48A11.87 11.87 0 0012.06 0C5.5 0 .2 5.3.2 11.85c0 2.09.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 005.66 1.44h.01c6.55 0 11.86-5.3 11.86-11.85 0-3.17-1.24-6.14-3.41-8.43zM12.06 21.4a9.5 9.5 0 01-4.85-1.33l-.35-.21-3.8 1 1.01-3.7-.23-.38a9.5 9.5 0 01-1.46-5.03c0-5.27 4.3-9.55 9.6-9.55 2.56 0 4.97 1 6.78 2.81a9.48 9.48 0 012.8 6.76c0 5.27-4.3 9.63-9.5 9.63z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="trabajos" style="background: oklch(0.96 0.015 255); padding: 80px 24px;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 36px;">
+        <div>
+          <div style="font-weight: 800; font-size: 13px; letter-spacing: 0.08em; color: oklch(0.5 0.19 255); margin-bottom: 10px;">PROYECTOS</div>
+          <h2 class="re-section-title" style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 36px; margin: 0; color: oklch(0.2 0.02 255); letter-spacing: -0.01em;">Nuestros trabajos</h2>
+        </div>
+        <p style="font-size: 15px; color: oklch(0.45 0.02 255); margin: 0; max-width: 360px;">Algunas instalaciones y reparaciones realizadas en Bilbao y Vizcaya.</p>
+      </div>
+      <div class="re-gallery-grid" style="display: grid; grid-template-columns: repeat(4,1fr); gap: 18px;">
+        <sc-for list="{{ galleryIds }}" as="gid" hint-placeholder-count="8">
+          <div style="aspect-ratio: 1; border-radius: 18px; overflow: hidden; box-shadow: 0 8px 20px -12px oklch(0.2 0.05 255 / 0.2);">
+            <image-slot id="{{ gid }}" shape="rect" placeholder="Foto de trabajo"></image-slot>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="opiniones" style="padding: 80px 24px; max-width: 1280px; margin: 0 auto;">
+    <div style="max-width: 560px; margin: 0 auto 44px; text-align: center;">
+      <div style="font-weight: 800; font-size: 13px; letter-spacing: 0.08em; color: oklch(0.5 0.19 255); margin-bottom: 10px;">OPINIONES</div>
+      <h2 class="re-section-title" style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 36px; margin: 0 0 12px; color: oklch(0.2 0.02 255); letter-spacing: -0.01em;">Lo que dicen nuestros clientes</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px;">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="4">
+        <div style="background: white; border: 1px solid oklch(0.91 0.01 255); border-radius: 20px; padding: 28px; position: relative; overflow: hidden;">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="oklch(0.94 0.03 255)" style="position: absolute; top: 14px; right: 16px;"><path d="M7.17 6A5.17 5.17 0 002 11.17V18h6.83v-6.83H4.6a2.83 2.83 0 012.83-2.83zm10 0A5.17 5.17 0 0012 11.17V18h6.83v-6.83H14.6a2.83 2.83 0 012.83-2.83z"/></svg>
+          <div style="display: flex; gap: 3px; margin-bottom: 14px; position: relative;">
+            <sc-for list="{{ fiveStars }}" as="star" hint-placeholder-count="5">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="oklch(0.5 0.19 255)"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.5 21.7l1.8-7.3L1.6 9.5l7.5-.6z"/></svg>
+            </sc-for>
+          </div>
+          <p style="font-size: 15px; line-height: 1.6; color: oklch(0.3 0.02 255); margin: 0 0 18px; position: relative;">"{{ r.quote }}"</p>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.46 0.19 265)); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0;">{{ r.initial }}</div>
+            <div>
+              <div style="font-weight: 700; font-size: 14px; color: oklch(0.2 0.02 255);">{{ r.name }}</div>
+              <div style="font-size: 12.5px; color: oklch(0.5 0.02 255);">{{ r.place }}</div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section style="max-width: 1280px; margin: 0 24px 80px; margin-left: auto; margin-right: auto; background: linear-gradient(120deg, oklch(0.2 0.04 260), oklch(0.28 0.07 265)); border-radius: 28px; padding: 48px 44px; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; border-radius: 50%; background: oklch(0.6 0.2 255 / 0.25); filter: blur(10px);"></div>
+    <div class="re-cta-band" style="position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+      <div>
+        <h2 style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 28px; margin: 0 0 8px; color: white; letter-spacing: -0.01em;">¿Necesitas un electricista ahora mismo?</h2>
+        <p style="font-size: 15.5px; color: oklch(0.85 0.02 260); margin: 0;">Atendemos urgencias 24 horas en Bilbao y toda Vizcaya.</p>
+      </div>
+      <a href="tel:+34656827054" style="display: flex; align-items: center; gap: 10px; background: white; color: oklch(0.2 0.04 260); font-weight: 700; font-size: 15.5px; padding: 16px 28px; border-radius: 14px; white-space: nowrap;" style-hover="transform: translateY(-2px);">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="oklch(0.2 0.04 260)" stroke-width="2.2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Llamar ahora
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contacto" style="background: oklch(0.96 0.015 255); padding: 80px 24px;">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div class="re-contact-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+        <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 20px 50px -30px oklch(0.2 0.05 255 / 0.3);">
+          <h2 style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 28px; margin: 0 0 8px; color: oklch(0.2 0.02 255); letter-spacing: -0.01em;">Pide presupuesto sin compromiso</h2>
+          <p style="font-size: 15.5px; color: oklch(0.45 0.02 255); margin: 0 0 20px;">Cuéntanos qué necesitas y te respondemos lo antes posible.</p>
+          <div style="display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 24px;">
+            <a href="tel:+34656827054" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: oklch(0.5 0.19 255);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              656 82 70 54
+            </a>
+            <a href="mailto:info@rayoexpres.com" style="display: flex; align-items: center; gap: 8px; font-weight: 700; color: oklch(0.5 0.19 255);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+              info@rayoexpres.com
+            </a>
+          </div>
+
+          <sc-if value="{{ formSubmitted }}" hint-placeholder-val="{{ false }}">
+            <div style="background: oklch(0.94 0.05 150); border: 1px solid oklch(0.75 0.1 150); border-radius: 14px; padding: 24px; display: flex; gap: 14px; align-items: flex-start;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.4 0.13 150)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div>
+                <div style="font-weight: 700; color: oklch(0.25 0.1 150); margin-bottom: 4px;">¡Solicitud recibida!</div>
+                <div style="font-size: 14px; color: oklch(0.35 0.08 150);">Te responderemos lo antes posible. Gracias por confiar en RayoExprés.</div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ formNotSubmitted }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ handleSubmit }}" style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div>
+                <label style="display: block; font-weight: 700; font-size: 13.5px; margin-bottom: 6px; color: oklch(0.3 0.02 255);">Nombre</label>
+                <input type="text" placeholder="Tu nombre" value="{{ form.name }}" onChange="{{ updateName }}" style="width: 100%; padding: 13px 14px; border-radius: 11px; border: 1.5px solid oklch(0.88 0.01 255); font-size: 14px; font-family: inherit; outline: none;" style-focus="border-color: oklch(0.5 0.19 255);" />
+              </div>
+              <div>
+                <label style="display: block; font-weight: 700; font-size: 13.5px; margin-bottom: 6px; color: oklch(0.3 0.02 255);">Teléfono</label>
+                <input type="tel" placeholder="600 000 000" value="{{ form.phone }}" onChange="{{ updatePhone }}" style="width: 100%; padding: 13px 14px; border-radius: 11px; border: 1.5px solid oklch(0.88 0.01 255); font-size: 14px; font-family: inherit; outline: none;" style-focus="border-color: oklch(0.5 0.19 255);" />
+              </div>
+            </div>
+            <div>
+              <label style="display: block; font-weight: 700; font-size: 13.5px; margin-bottom: 6px; color: oklch(0.3 0.02 255);">Localidad</label>
+              <input type="text" placeholder="Bilbao, Getxo, Durango..." value="{{ form.locality }}" onChange="{{ updateLocality }}" style="width: 100%; padding: 13px 14px; border-radius: 11px; border: 1.5px solid oklch(0.88 0.01 255); font-size: 14px; font-family: inherit; outline: none;" style-focus="border-color: oklch(0.5 0.19 255);" />
+            </div>
+            <div>
+              <label style="display: block; font-weight: 700; font-size: 13.5px; margin-bottom: 6px; color: oklch(0.3 0.02 255);">¿Qué necesitas?</label>
+              <textarea placeholder="Describe la avería o el trabajo a realizar" value="{{ form.message }}" onChange="{{ updateMessage }}" rows="4" style="width: 100%; padding: 13px 14px; border-radius: 11px; border: 1.5px solid oklch(0.88 0.01 255); font-size: 14px; font-family: inherit; resize: vertical; outline: none;" style-focus="border-color: oklch(0.5 0.19 255);"></textarea>
+            </div>
+            <button type="submit" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.46 0.19 265)); color: white; font-weight: 700; font-size: 15px; padding: 16px; border-radius: 13px; border: none; cursor: pointer; font-family: inherit; box-shadow: 0 12px 24px -10px oklch(0.5 0.19 255 / 0.5);" style-hover="transform: translateY(-1px);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+              Solicitar presupuesto
+            </button>
+          </form>
+          </sc-if>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="height: 260px; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px -30px oklch(0.2 0.05 255 / 0.3);">
+            <image-slot id="map-view" shape="rect" placeholder="Captura del mapa de zona de cobertura"></image-slot>
+          </div>
+          <div style="background: white; border: 1px solid oklch(0.91 0.01 255); border-radius: 20px; padding: 24px;">
+            <div style="display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; color: oklch(0.2 0.02 255); margin-bottom: 6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="oklch(0.5 0.19 255)" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Zona de trabajo
+            </div>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 255); margin: 0 0 14px;">Bilbao y toda Vizcaya, incluyendo:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <sc-for list="{{ zones }}" as="z" hint-placeholder-count="12">
+                <span style="background: oklch(0.94 0.02 255); color: oklch(0.4 0.1 255); font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px;">{{ z }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background: oklch(0.16 0.03 260); padding: 48px 24px 28px;">
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; padding-bottom: 24px; border-bottom: 1px solid oklch(1 0 0 / 0.1);">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.46 0.19 265)); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="white"/></svg>
+        </div>
+        <span style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 17px; color: white;">Rayo<span style="color: oklch(0.7 0.15 255);">Exprés</span></span>
+      </div>
+      <div style="display: flex; gap: 28px; flex-wrap: wrap;">
+        <a href="#servicios" style="color: oklch(0.75 0.02 260); font-weight: 600; font-size: 14px;">Servicios</a>
+        <a href="#trabajos" style="color: oklch(0.75 0.02 260); font-weight: 600; font-size: 14px;">Trabajos</a>
+        <a href="#opiniones" style="color: oklch(0.75 0.02 260); font-weight: 600; font-size: 14px;">Opiniones</a>
+        <a href="#contacto" style="color: oklch(0.75 0.02 260); font-weight: 600; font-size: 14px;">Contacto</a>
+      </div>
+    </div>
+    <div style="max-width: 1280px; margin: 0 auto; padding-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; font-size: 13.5px; color: oklch(0.6 0.02 260);">
+      <div>RayoExprés · Electricistas en Bilbao y Vizcaya</div>
+      <div>656 82 70 54 · info@rayoexpres.com · Urgencias 24 h</div>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky CTA bar -->
+  <sc-if value="{{ showMobileBar }}" hint-placeholder-val="{{ true }}">
+    <div class="re-mobile-bar" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 60; background: white; border-top: 1px solid oklch(0.88 0.01 255); padding: 10px 14px; gap: 10px; box-shadow: 0 -8px 20px -12px oklch(0.2 0.05 255 / 0.25);">
+      <a href="tel:+34656827054" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(135deg, oklch(0.56 0.2 255), oklch(0.46 0.19 265)); color: white; font-weight: 700; font-size: 14.5px; padding: 13px; border-radius: 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.3" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Llamar
+      </a>
+      <a href="https://wa.me/34656827054" target="_blank" rel="noopener" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; background: oklch(0.6 0.15 150); color: white; font-weight: 700; font-size: 14.5px; padding: 13px; border-radius: 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20.52 3.48A11.87 11.87 0 0012.06 0C5.5 0 .2 5.3.2 11.85c0 2.09.55 4.13 1.6 5.93L0 24l6.4-1.68a11.9 11.9 0 005.66 1.44h.01c6.55 0 11.86-5.3 11.86-11.85 0-3.17-1.24-6.14-3.41-8.43zM12.06 21.4a9.5 9.5 0 01-4.85-1.33l-.35-.21-3.8 1 1.01-3.7-.23-.38a9.5 9.5 0 01-1.46-5.03c0-5.27 4.3-9.55 9.6-9.55 2.56 0 4.97 1 6.78 2.81a9.48 9.48 0 012.8 6.76c0 5.27-4.3 9.63-9.5 9.63z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </sc-if>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;heroImagePosition&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;default&quot;: &quot;left&quot;, &quot;options&quot;: [&quot;right&quot;, &quot;left&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Layout&quot;}, &quot;serviceColumns&quot;: {&quot;editor&quot;: &quot;range&quot;, &quot;default&quot;: 3, &quot;min&quot;: 2, &quot;max&quot;: 4, &quot;step&quot;: 1, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;Layout&quot;}, &quot;stickyMobileBar&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Mobile&quot;}}">
+const ICONS = {
+  clock: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.5 0.19 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  pin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.5 0.19 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  shield: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="oklch(0.5 0.19 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/></svg>',
+  star: '<svg width="20" height="20" viewBox="0 0 24 24" fill="oklch(0.5 0.19 255)"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.5 21.7l1.8-7.3L1.6 9.5l7.5-.6z"/></svg>',
+  bolt: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.17 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+  wrench: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.17 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 11-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 015.4-5.4l-3 3-2-2z"/></svg>',
+  plug: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.17 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v4M15 2v4M6 8h12a1 1 0 011 1v3a7 7 0 01-7 7 7 7 0 01-7-7V9a1 1 0 011-1z"/><path d="M12 19v3"/></svg>',
+  grid: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.17 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
+  bulb: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.17 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a6 6 0 00-4 10.5c.6.6 1 1.5 1 2.5h6c0-1 .4-1.9 1-2.5A6 6 0 0012 2z"/></svg>',
+  file: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.17 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>',
+  shield2: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.45 0.17 255)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/></svg>'
+};
+const STARS_HTML = Array.from({length:5}).map(() => '<svg width="14" height="14" viewBox="0 0 24 24" fill="oklch(0.5 0.19 255)"><path d="M12 2l2.9 6.9 7.5.6-5.7 4.9 1.8 7.3L12 17.8 5.5 21.7l1.8-7.3L1.6 9.5l7.5-.6z"/></svg>').join('');
+
+class Component extends DCLogic {
+  state = {
+    menuOpen: false,
+    formSubmitted: false,
+    form: { name: '', phone: '', locality: '', message: '' }
+  };
+
+  toggleMenu = () => this.setState(s => ({ menuOpen: !s.menuOpen }));
+  closeMenu = () => this.setState({ menuOpen: false });
+  updateName = e => this.setState(s => ({ form: { ...s.form, name: e.target.value } }));
+  updatePhone = e => this.setState(s => ({ form: { ...s.form, phone: e.target.value } }));
+  updateLocality = e => this.setState(s => ({ form: { ...s.form, locality: e.target.value } }));
+  updateMessage = e => this.setState(s => ({ form: { ...s.form, message: e.target.value } }));
+  handleSubmit = e => { e.preventDefault(); this.setState({ formSubmitted: true }); };
+
+  renderVals() {
+    const heroPos = this.props.heroImagePosition ?? 'right';
+    return {
+      menuOpen: this.state.menuOpen,
+      menuIconPath: this.state.menuOpen ? 'M18 6L6 18M6 6l12 12' : 'M3 6h18M3 12h18M3 18h18',
+      toggleMenu: this.toggleMenu,
+      closeMenu: this.closeMenu,
+      heroColumns: heroPos === 'left' ? '1fr 1.05fr' : '1.05fr 1fr',
+      heroOrder: heroPos === 'left' ? 'order:2' : 'order:1',
+      heroImgOrder: heroPos === 'left' ? 'order:1' : 'order:2',
+      serviceColumns: this.props.serviceColumns ?? 3,
+      showMobileBar: this.props.stickyMobileBar ?? true,
+      form: this.state.form,
+      formSubmitted: this.state.formSubmitted,
+      formNotSubmitted: !this.state.formSubmitted,
+      updateName: this.updateName,
+      updatePhone: this.updatePhone,
+      updateLocality: this.updateLocality,
+      updateMessage: this.updateMessage,
+      handleSubmit: this.handleSubmit,
+      fiveStars: [0,1,2,3,4],
+      starsHtml: { __html: STARS_HTML },
+      galleryIds: ['gallery-1','gallery-2','gallery-3','gallery-4','gallery-5','gallery-6','gallery-7','gallery-8'],
+      zones: ['Bilbao','Barakaldo','Getxo','Portugalete','Santurtzi','Basauri','Leioa','Sestao','Galdakao','Durango','Erandio','Mungia'],
+      trustItems: [
+        { icon: { __html: ICONS.clock }, title: 'Respuesta en 30 min', sub: 'En Bilbao y alrededores' },
+        { icon: { __html: ICONS.pin }, title: 'Toda Vizcaya', sub: 'Cobertura completa' },
+        { icon: { __html: ICONS.shield }, title: 'Instaladores autorizados', sub: 'Trabajos garantizados' },
+        { icon: { __html: ICONS.star }, title: '4,9 / 5', sub: 'Más de 120 opiniones' }
+      ],
+      services: [
+        { icon: { __html: ICONS.bolt }, title: 'Electricista 24 horas', desc: 'Servicio de urgencias todos los días del año, con llegada rápida a cualquier punto de Vizcaya.' },
+        { icon: { __html: ICONS.wrench }, title: 'Reparación de averías eléctricas', desc: 'Localizamos y solucionamos cortocircuitos, saltos de diferencial y pérdidas de corriente.' },
+        { icon: { __html: ICONS.plug }, title: 'Enchufes e interruptores', desc: 'Instalación, sustitución y ampliación de puntos de luz y tomas de corriente.' },
+        { icon: { __html: ICONS.grid }, title: 'Cuadros eléctricos', desc: 'Renovación y ampliación de cuadros según normativa vigente, con protecciones adecuadas.' },
+        { icon: { __html: ICONS.bulb }, title: 'Iluminación LED', desc: 'Cambio a LED en viviendas, comercios y naves para reducir tu factura de la luz.' },
+        { icon: { __html: ICONS.file }, title: 'Boletines eléctricos', desc: 'Certificados CIE para altas de suministro y cambios de potencia, tramitados rápido.' },
+        { icon: { __html: ICONS.shield2 }, title: 'Mantenimiento eléctrico', desc: 'Planes de mantenimiento preventivo para comunidades, locales y empresas.' }
+      ],
+      reviews: [
+        { initial: 'A', quote: 'Se me fue la luz de toda la casa un domingo por la noche y en 30 minutos estaban aquí. Arreglado y explicado todo con claridad.', name: 'Ainhoa G.', place: 'Deusto, Bilbao' },
+        { initial: 'I', quote: 'Cambiaron el cuadro eléctrico del piso y me hicieron el boletín. Trabajo muy limpio y el precio fue el presupuestado.', name: 'Iker M.', place: 'Barakaldo' },
+        { initial: 'M', quote: 'Instalación de iluminación LED en todo el local. Se nota muchísimo en la factura y quedó impecable.', name: 'Marta L.', place: 'Getxo' },
+        { initial: 'J', quote: 'Puntuales, serios y con buen trato. Ya son los electricistas de nuestra comunidad de vecinos.', name: 'Jon A.', place: 'Basauri' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
