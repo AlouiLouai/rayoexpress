@@ -1,3 +1,4 @@
+import { LocalBusinessJsonLd } from "@/components/seo/local-business-jsonld";
 import { MarketingHeader } from "@/components/marketing/header";
 import { Hero } from "@/components/marketing/hero";
 import { Services } from "@/components/marketing/services";
@@ -11,6 +12,7 @@ import { MobileCtaBar } from "@/components/marketing/mobile-cta-bar";
 export default function Home() {
   return (
     <div className="flex min-w-0 flex-1 flex-col pb-[calc(6rem+env(safe-area-inset-bottom))] md:pb-0 [&>*]:min-w-0">
+      <LocalBusinessJsonLd />
       <MarketingHeader />
       <Hero />
       <Services />

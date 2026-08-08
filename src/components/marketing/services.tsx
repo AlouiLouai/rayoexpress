@@ -8,6 +8,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 import { siteConfig } from "@/config/site";
 import { WhatsAppIcon } from "./whatsapp-icon";
 
@@ -98,14 +99,16 @@ export function Services() {
               Llámanos y te atendemos ahora mismo.
             </p>
           </div>
-          <a
+          <TrackedLink
+            method="phone"
             href={`tel:${siteConfig.phone.tel}`}
             className="relative flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-[13px] font-bold text-brand-dark md:py-3.5 md:text-sm"
           >
             <Phone className="size-[15px]" strokeWidth={2.3} />
             {siteConfig.phone.display}
-          </a>
-          <a
+          </TrackedLink>
+          <TrackedLink
+            method="whatsapp"
             href={`https://wa.me/${siteConfig.phone.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -113,7 +116,7 @@ export function Services() {
           >
             <WhatsAppIcon className="size-[15px]" />
             WhatsApp
-          </a>
+          </TrackedLink>
         </div>
       </div>
     </section>

@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw source assets — originals for public/images/, not used by the app itself
+/rayo_express/
+/template/

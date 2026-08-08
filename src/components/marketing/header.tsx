@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, Phone, X } from "lucide-react";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 import { siteConfig } from "@/config/site";
 
 const navLinks = [
@@ -47,13 +48,14 @@ export function MarketingHeader() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <a
+          <TrackedLink
+            method="phone"
             href={`tel:${siteConfig.phone.tel}`}
             className="flex items-center gap-2 rounded-full bg-brand-gradient px-4.5 py-2.5 text-sm font-bold whitespace-nowrap text-white shadow-brand-btn transition hover:brightness-110"
           >
             <Phone className="size-[15px]" />
             <span className="hidden sm:inline">{siteConfig.phone.display}</span>
-          </a>
+          </TrackedLink>
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}

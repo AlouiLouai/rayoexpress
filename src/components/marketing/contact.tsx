@@ -1,12 +1,14 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { CheckCircle2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { siteConfig } from "@/config/site";
+import { trackLead } from "@/lib/gtag";
 import { submitContactAction, type ContactState } from "@/app/contact-action";
 
 const initialState: ContactState = null;
@@ -23,6 +25,10 @@ export function Contact() {
     initialState,
   );
 
+  useEffect(() => {
+    if (state?.success) trackLead("form");
+  }, [state?.success]);
+
   return (
     <section id="contacto" className="bg-brand-soft px-6 py-12 md:py-20">
       <div className="mx-auto grid max-w-7xl items-start gap-6 md:grid-cols-2 md:gap-12">
@@ -35,13 +41,14 @@ export function Contact() {
           </p>
 
           <div className="mb-4 flex flex-wrap gap-4 md:mb-6 md:gap-6">
-            <a
+            <TrackedLink
+              method="phone"
               href={`tel:${siteConfig.phone.tel}`}
               className="flex items-center gap-2 text-sm font-bold text-brand"
             >
               <Phone className="size-4" strokeWidth={2.3} />
               {siteConfig.phone.display}
-            </a>
+            </TrackedLink>
             <a
               href={`mailto:${siteConfig.email}`}
               className="flex items-center gap-2 text-sm font-bold text-brand"
@@ -69,6 +76,15 @@ export function Contact() {
             </div>
           ) : (
             <form action={formAction} className="flex flex-col gap-4">
+              {/* Honeypot: hidden from real visitors, bots that auto-fill every field trip it. */}
+              <input
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="absolute -left-full opacity-0"
+              />
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <Label

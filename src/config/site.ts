@@ -3,7 +3,6 @@ export const siteConfig = {
   shortName: "RayoExprés",
   description:
     "Averías eléctricas, cuadros, iluminación LED y boletines. Atendemos tu incidencia con rapidez y presupuesto cerrado antes de empezar. Urgencias 24 horas en Bilbao y toda Vizcaya.",
-  url: "https://rayoexpres.com",
   phone: {
     display: "656 82 70 54",
     tel: "+34656827054",

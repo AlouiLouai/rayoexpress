@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 import { siteConfig } from "@/config/site";
 
 export function CtaBand() {
@@ -17,13 +18,14 @@ export function CtaBand() {
             Atendemos urgencias 24 horas en Bilbao y toda Vizcaya.
           </p>
         </div>
-        <a
+        <TrackedLink
+          method="phone"
           href={`tel:${siteConfig.phone.tel}`}
           className="flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-bold whitespace-nowrap text-brand-deep transition hover:-translate-y-0.5 md:gap-2.5 md:rounded-2xl md:px-7 md:py-4 md:text-[15.5px]"
         >
           <Phone className="size-4 md:size-[17px]" />
           Llamar ahora
-        </a>
+        </TrackedLink>
       </div>
     </section>
   );

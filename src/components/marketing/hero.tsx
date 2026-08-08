@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Check, Clock, MapPin, Phone, ShieldCheck, Star } from "lucide-react";
+import { TrackedLink } from "@/components/analytics/tracked-link";
 import { siteConfig } from "@/config/site";
 import { WhatsAppIcon } from "./whatsapp-icon";
 
@@ -46,14 +47,16 @@ export function Hero() {
           </p>
 
           <div className="mb-4 flex flex-wrap gap-3 md:mb-7.5 md:gap-3.5">
-            <a
+            <TrackedLink
+              method="phone"
               href={`tel:${siteConfig.phone.tel}`}
               className="flex items-center gap-2 rounded-xl bg-brand-gradient px-5 py-3 text-sm font-bold text-white shadow-brand-btn-lg transition hover:-translate-y-0.5 md:gap-2.5 md:rounded-2xl md:px-6.5 md:py-4 md:text-[15.5px]"
             >
               <Phone className="size-4 md:size-[17px]" />
               Llamar ahora
-            </a>
-            <a
+            </TrackedLink>
+            <TrackedLink
+              method="whatsapp"
               href={`https://wa.me/${siteConfig.phone.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -61,7 +64,7 @@ export function Hero() {
             >
               <WhatsAppIcon className="size-4 text-whatsapp-dark md:size-[17px]" />
               WhatsApp
-            </a>
+            </TrackedLink>
           </div>
 
           <p className="flex items-center gap-1.5 text-[12.5px] text-brand-ink-soft md:text-[13.5px]">
