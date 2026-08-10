@@ -66,11 +66,6 @@ export function Hero() {
               WhatsApp
             </TrackedLink>
           </div>
-
-          <p className="flex items-center gap-1.5 text-[12.5px] text-brand-ink-soft md:text-[13.5px]">
-            <Check className="size-3.5" strokeWidth={2.4} />
-            Sin cuota de desplazamiento · Presupuesto antes de empezar
-          </p>
         </div>
 
         <div className="relative grid h-[300px] grid-cols-2 grid-rows-2 gap-2 sm:h-[380px] md:h-[460px] md:gap-3">
